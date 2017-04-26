@@ -6,7 +6,7 @@
         android:id="@+id/straightLine"/>
     <item android:title="Color"
         app:showAsAction="ifRoom"
-        android:id="@+id/level">
+        android:id="@+id/color">
         <menu>
 
             <item
@@ -22,4 +22,36 @@
                 />
         </menu>
     </item>
+    <item android:title="Eraser"
+        android:id="@+id/eraser"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/light"
+                android:title="light" />
+            <item
+                android:id="@+id/full"
+                android:title="full"
+                />
+        </menu>
+    </item>
+    <item android:title="Brush Size"
+        android:id="@+id/brushSize"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/sizeSmall"
+                android:title="small" />
+            <item
+                android:id="@+id/sizeMedium"
+                android:title="medium"
+                />
+            <item
+                android:id="@+id/sizeBig"
+                android:title="big"
+                />
+        </menu>
+    </item>
+
+
 </menu>

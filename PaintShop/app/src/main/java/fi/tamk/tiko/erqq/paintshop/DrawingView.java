@@ -6,6 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -49,7 +51,12 @@ public class DrawingView extends View {
         mBitmapPaint = new Paint(Paint.DITHER_FLAG);
 
     }
-
+    public void setColor(int color){
+        mPaint.setColor(color);
+    }
+    public void setSize(int size){
+        mPaint.setStrokeWidth(size);
+    }
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -105,6 +112,7 @@ public class DrawingView extends View {
 
             }
         }
+
     }
 
     private void touch_up() {
@@ -116,7 +124,9 @@ public class DrawingView extends View {
             mPath.lineTo(mX, mY);
             mCanvas.drawPath(mPath, mPaint);
             mPath.reset();
+
         }
+        invalidate();
     }
 
     @Override
@@ -130,6 +140,7 @@ public class DrawingView extends View {
                 invalidate();
                 break;
             case MotionEvent.ACTION_MOVE:
+
                 touch_move(x, y);
                 invalidate();
                 break;
@@ -137,6 +148,7 @@ public class DrawingView extends View {
                 touch_up();
                 invalidate();
                 break;
+
         }
         return true;
     }
