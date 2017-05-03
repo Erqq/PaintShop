@@ -6,16 +6,18 @@ android:layout_width="match_parent"
 android:layout_height="match_parent">
 <!-- The main content view -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         tools:context="fi.tamk.tiko.erqq.paintshop.DrawingCanvas">
 
     </RelativeLayout>
 <!-- The navigation drawer -->
 <ListView android:id="@+id/left_drawer"
     android:layout_width="240dp"
+
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:choiceMode="singleChoice"
