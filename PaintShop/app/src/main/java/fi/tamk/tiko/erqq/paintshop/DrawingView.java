@@ -2,15 +2,23 @@ package fi.tamk.tiko.erqq.paintshop;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.ParcelFileDescriptor;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.io.FileDescriptor;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -31,10 +39,24 @@ public class DrawingView extends View {
     private Canvas mCanvas;
     private Path mPath;
     private Paint mBitmapPaint;
+    private String loaded="";
+
+    public Bitmap getmBitmap() {
+        return mBitmap;
+    }
+
     Context context;
     public Paint mPaint;
     private float mX, mY;
     private static final float TOUCH_TOLERANCE = 4;
+
+    public String getLoaded() {
+        return loaded;
+    }
+
+    public void setLoaded(String loaded) {
+        this.loaded = loaded;
+    }
 
     public DrawingView(Context c) {
         super(c);
@@ -59,15 +81,42 @@ public class DrawingView extends View {
     }
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
+        if (!loaded.equals("")) {
+            Uri uri = Uri.parse(loaded);
+
+            try {
+                Bitmap bit = getBitmapFromUri(uri);
+                mBitmap=bit.copy(Bitmap.Config.ARGB_8888, true);
+                mCanvas=new Canvas(mBitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        } else {
+
 
         mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        mBitmap.setHasAlpha(true);
         mCanvas = new Canvas(mBitmap);
+        mCanvas.drawColor(Color.WHITE);
     }
+        super.onSizeChanged(w, h, oldw, oldh);
 
+
+    }
+    private Bitmap getBitmapFromUri(Uri uri) throws IOException {
+        ParcelFileDescriptor parcelFileDescriptor =
+                context.getContentResolver().openFileDescriptor(uri, "r");
+        FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+        Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+        parcelFileDescriptor.close();
+        return image;
+    }
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
         if (straigth){
             canvas.drawBitmap(mBitmap, 0, 0, mBitmapPaint);
             canvas.drawLine(startX, startY, endX, endY, mPaint);
@@ -159,4 +208,5 @@ public class DrawingView extends View {
     public void setStraigth(boolean straigth) {
         this.straigth = straigth;
     }
+
 }

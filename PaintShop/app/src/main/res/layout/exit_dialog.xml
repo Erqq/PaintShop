@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Exit"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView" />
+    <Button
+        android:layout_margin="5dp"
+        android:onClick=""
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="cancel"
+        android:layout_below="@+id/exitSave"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:layout_margin="5dp"
+        android:id="@+id/exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="exit to main menu"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/button"/>
+    <Button
+        android:layout_margin="5dp"
+        android:id="@+id/exitSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save &amp; Exit to main menu"
+        android:background="@drawable/button"
+        android:layout_below="@+id/exit"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

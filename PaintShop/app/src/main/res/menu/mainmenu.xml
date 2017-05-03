@@ -20,6 +20,17 @@
                 android:id="@+id/blue"
                 android:title="blue"
                 />
+            <item
+                android:id="@+id/black"
+                android:title="black" />
+            <item
+                android:id="@+id/yellow"
+                android:title="yellow"
+                />
+            <item
+                android:id="@+id/gray"
+                android:title="gray"
+                />
         </menu>
     </item>
     <item android:title="Eraser"
