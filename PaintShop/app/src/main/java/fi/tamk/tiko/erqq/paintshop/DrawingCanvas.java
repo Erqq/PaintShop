@@ -2,14 +2,9 @@ package fi.tamk.tiko.erqq.paintshop;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.media.MediaScannerConnection;
@@ -23,26 +18,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class DrawingCanvas extends AppCompatActivity {
     DrawingView dv ;
-    private String[] mPlanetTitles;
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -202,6 +187,7 @@ public class DrawingCanvas extends AppCompatActivity {
                 dv.setColor(Color.BLACK);
                 return true;
             case (R.id.yellow):
+
                 dv.mPaint.setAlpha(0xFF);
                 dv.setColor(Color.YELLOW);
                 return true;
