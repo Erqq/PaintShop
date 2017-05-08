@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
@@ -85,9 +86,21 @@ public class DrawingView extends View {
             Uri uri = Uri.parse(loaded);
 
             try {
+                Matrix matrix = new Matrix();
+                matrix.postRotate(-90);
                 Bitmap bit = getBitmapFromUri(uri);
-                mBitmap=bit.copy(Bitmap.Config.ARGB_8888, true);
+
+                if (bit.getWidth()>bit.getHeight()){
+                    Bitmap rotate=Bitmap.createScaledBitmap(
+                            bit.copy(Bitmap.Config.ARGB_8888, true), h, w, false);
+                    mBitmap=Bitmap.createBitmap(rotate,0,0,rotate.getWidth(),rotate.getHeight(),matrix,false);
+                }else {
+                    mBitmap = Bitmap.createScaledBitmap(
+                            bit.copy(Bitmap.Config.ARGB_8888, true), w, h, false);
+                }
+
                 mCanvas=new Canvas(mBitmap);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

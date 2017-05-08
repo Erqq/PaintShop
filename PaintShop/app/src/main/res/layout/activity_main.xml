@@ -21,7 +21,7 @@
     <Button
         android:id="@+id/buttonload"
         android:onClick="LoadDrawing"
-        android:text="Load"
+        android:text="open"
         android:background="@drawable/button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
