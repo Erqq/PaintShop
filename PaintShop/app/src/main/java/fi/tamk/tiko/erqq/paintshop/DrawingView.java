@@ -36,7 +36,7 @@ public class DrawingView extends View {
     private float startY;
     private float endX;
     private float endY;
-    private Bitmap mBitmap;
+    public Bitmap mBitmap;
     private Canvas mCanvas;
     private Path mPath;
     private Paint mBitmapPaint;
@@ -135,6 +135,7 @@ public class DrawingView extends View {
             canvas.drawLine(startX, startY, endX, endY, mPaint);
         }else {
             canvas.drawBitmap(mBitmap, 0, 0, mBitmapPaint);
+
             canvas.drawPath(mPath, mPaint);
         }
     }

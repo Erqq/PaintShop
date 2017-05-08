@@ -9,42 +9,37 @@
 
             <item
                 android:id="@+id/red"
-                android:title="red" />
+                android:title="red"
+
+                />
             <item
                 android:id="@+id/green"
                 android:title="green"
+
                 />
             <item
                 android:id="@+id/blue"
                 android:title="blue"
-                
+
                 />
             <item
                 android:id="@+id/black"
-                android:title="black" />
+                android:title="black"
+
+                />
             <item
                 android:id="@+id/yellow"
                 android:title="yellow"
+
                 />
             <item
                 android:id="@+id/gray"
                 android:title="gray"
+
                 />
         </menu>
     </item>
-    <item android:title="Eraser"
-        android:id="@+id/eraser"
-        app:showAsAction="ifRoom">
-        <menu>
-            <item
-                android:id="@+id/light"
-                android:title="light" />
-            <item
-                android:id="@+id/full"
-                android:title="full"
-                />
-        </menu>
-    </item>
+
     <item android:title="Brush Size"
         android:id="@+id/brushSize"
         app:showAsAction="ifRoom">
@@ -59,6 +54,19 @@
             <item
                 android:id="@+id/sizeBig"
                 android:title="big"
+                />
+        </menu>
+    </item>
+    <item android:title="Eraser"
+        android:id="@+id/eraser"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/light"
+                android:title="light" />
+            <item
+                android:id="@+id/full"
+                android:title="full"
                 />
         </menu>
     </item>
