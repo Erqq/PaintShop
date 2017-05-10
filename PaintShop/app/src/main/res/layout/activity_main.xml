@@ -5,28 +5,42 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="fi.tamk.tiko.erqq.paintshop.MainActivity">
+    tools:context="fi.tamk.tiko.erqq.paintshop.MainActivity"
+    android:background="@color/main_color">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_brush_big"
+
+
+        android:layout_marginBottom="27dp"
+        android:layout_above="@+id/buttonNew"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/buttonNew"
         android:onClick="newDrawing"
         android:text="New"
-        android:layout_margin="5dp"
         android:background="@drawable/button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_above="@+id/buttonload"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
     <Button
         android:id="@+id/buttonload"
         android:onClick="LoadDrawing"
-        android:text="Load"
+        android:text="open"
         android:background="@drawable/button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
 
-        android:layout_below="@+id/buttonNew"
+        android:layout_marginBottom="88dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/buttonNew" />
 
 </RelativeLayout>

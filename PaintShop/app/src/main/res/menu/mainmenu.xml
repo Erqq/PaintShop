@@ -1,53 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:title="StraightLine"
-        app:showAsAction="ifRoom"
-        android:id="@+id/straightLine"/>
-    <item android:title="Color"
-        app:showAsAction="ifRoom"
-        android:id="@+id/color">
-        <menu>
 
-            <item
-                android:id="@+id/red"
-                android:title="red" />
-            <item
-                android:id="@+id/green"
-                android:title="green"
-                />
-            <item
-                android:id="@+id/blue"
-                android:title="blue"
-                />
+    <item
+        android:id="@+id/color"
+        android:title="Color"
+        app:showAsAction="ifRoom">
+        <menu>
             <item
                 android:id="@+id/black"
-                android:title="black" />
-            <item
-                android:id="@+id/yellow"
-                android:title="yellow"
+                android:title="black"
+
                 />
             <item
                 android:id="@+id/gray"
                 android:title="gray"
+
                 />
+            <item
+                android:id="@+id/red"
+                android:title="red"
+
+                />
+            <item
+                android:id="@+id/yellow"
+                android:title="yellow"
+
+                />
+            <item
+                android:id="@+id/green"
+                android:title="green"
+
+                />
+            <item
+                android:id="@+id/cyan"
+                android:title="cyan"
+
+                />
+            <item
+                android:id="@+id/blue"
+                android:title="blue"
+
+                />
+            <item
+                android:id="@+id/magenta"
+                android:title="magenta"
+
+                />
+
         </menu>
     </item>
-    <item android:title="Eraser"
-        android:id="@+id/eraser"
-        app:showAsAction="ifRoom">
-        <menu>
-            <item
-                android:id="@+id/light"
-                android:title="light" />
-            <item
-                android:id="@+id/full"
-                android:title="full"
-                />
-        </menu>
-    </item>
-    <item android:title="Brush Size"
+
+    <item
         android:id="@+id/brushSize"
+        android:title="Brush Size"
         app:showAsAction="ifRoom">
         <menu>
             <item
@@ -55,14 +61,32 @@
                 android:title="small" />
             <item
                 android:id="@+id/sizeMedium"
-                android:title="medium"
-                />
+                android:title="medium" />
             <item
                 android:id="@+id/sizeBig"
-                android:title="big"
-                />
+                android:title="big" />
         </menu>
     </item>
-
+    <item
+        android:id="@+id/eraser"
+        android:title="Eraser"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/light"
+                android:title="light" />
+            <item
+                android:id="@+id/full"
+                android:title="full" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/straightLine"
+        android:title="Straight Line"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/save"
+        android:title="Save"
+        app:showAsAction="ifRoom" />
 
 </menu>
