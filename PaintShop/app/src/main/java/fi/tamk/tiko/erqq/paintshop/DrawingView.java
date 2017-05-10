@@ -96,7 +96,7 @@ public class DrawingView extends View {
                                     "Try another one."
                             , Toast.LENGTH_LONG).show();
                 }
-                
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
