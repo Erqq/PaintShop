@@ -82,7 +82,7 @@
     </item>
     <item
         android:id="@+id/straightLine"
-        android:title="StraightLine"
+        android:title="Straight Line"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/save"
