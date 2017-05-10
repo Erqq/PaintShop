@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -79,18 +80,23 @@ public class DrawingView extends View {
                 Matrix matrix = new Matrix();
                 matrix.postRotate(-90);
                 Bitmap bit = getBitmapFromUri(uri);
-
-                if (bit.getWidth() > bit.getHeight()) {
-                    Bitmap rotate = Bitmap.createScaledBitmap(
-                            bit.copy(Bitmap.Config.ARGB_8888, true), h, w, false);
-                    mBitmap = Bitmap.createBitmap(rotate, 0, 0, rotate.getWidth(),
-                            rotate.getHeight(), matrix, false);
-                } else {
-                    mBitmap = Bitmap.createScaledBitmap(
-                            bit.copy(Bitmap.Config.ARGB_8888, true), w, h, false);
+                if (bit!=null) {
+                    if (bit.getWidth() > bit.getHeight()) {
+                        Bitmap rotate = Bitmap.createScaledBitmap(
+                                bit.copy(Bitmap.Config.ARGB_8888, true), h, w, false);
+                        mBitmap = Bitmap.createBitmap(rotate, 0, 0, rotate.getWidth(),
+                                rotate.getHeight(), matrix, false);
+                    } else {
+                        mBitmap = Bitmap.createScaledBitmap(
+                                bit.copy(Bitmap.Config.ARGB_8888, true), w, h, false);
+                    }
+                    mCanvas = new Canvas(mBitmap);
+                }else {
+                    Toast.makeText(context, "There was something wrong with the image. " +
+                                    "Try another one."
+                            , Toast.LENGTH_LONG).show();
                 }
-                mCanvas = new Canvas(mBitmap);
-
+                
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -36,6 +36,7 @@ public class DrawingCanvas extends AppCompatActivity {
     DrawingView dv;
     MenuItem tempItem;
     MenuItem tempItemSize;
+    boolean menuSave ;
     private boolean eraser = false;
 
     /**
@@ -48,6 +49,7 @@ public class DrawingCanvas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getIntent().getExtras();
+        menuSave=false;
         dv = new DrawingView(this);
         dv.setDrawingCacheEnabled(true);
         dv.setColor(Color.BLACK);
@@ -182,7 +184,10 @@ public class DrawingCanvas extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
                     dv.setDrawingCacheEnabled(false);
-                    DrawingCanvas.this.finish();
+                    if (!menuSave) {
+                        DrawingCanvas.this.finish();
+                    }
+                    menuSave=false;
                 }
             }
         });
@@ -292,6 +297,7 @@ public class DrawingCanvas extends AppCompatActivity {
                 return true;
 
             case (R.id.save):
+                menuSave=true;
                 save(dv.context);
                 return true;
         }
